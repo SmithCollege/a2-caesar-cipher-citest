@@ -17,31 +17,31 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v3
 
-    - name: Run DynamicArrayTest
-      id: dynamic-array-test
+    - name: Run DynamicArrayTests
+      id: dynamic-array-tests
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: DynamicArrayTest
+        test-name: DynamicArrayTests
         setup-command: ''
-        command: ./gradlew test --tests DynamicArrayTest
+        command: ./gradlew test --tests DynamicArrayTests
         timeout: 3
 
-    - name: Run CaesarCipherTest
-      id: caesar-cipher-test
+    - name: Run CaesarCipherTests
+      id: caesar-cipher-tests
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: CaesarCipherTest
+        test-name: CaesarCipherTests
         setup-command: ''
-        command: ./gradlew test --tests CaesarCipherTest
+        command: ./gradlew test --tests CaesarCipherTests
         timeout: 3
 
-    - name: Run YourTest
-      id: your-test
+    - name: Run YourTests
+      id: your-tests
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: YourTest
+        test-name: YourTests
         setup-command: ''
-        command: ./gradlew test --tests YourTest
+        command: ./gradlew test --tests YourTests
         timeout: 3
 
     - name: Autograding Reporter
