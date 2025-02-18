@@ -13,14 +13,19 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v3
+
     - name: General tests
       id: general-tests
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: General tests
         setup-command: ''
-        command: gradle test
+        command: ./gradlew test
         timeout: 3
+
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
