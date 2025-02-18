@@ -51,4 +51,4 @@ jobs:
         CAESAR-CIPHER-TEST_RESULTS: "${{steps.caesar-cipher-test.outputs.result}}"
         YOUR-TEST_RESULTS: "${{steps.your-test.outputs.result}}"
       with:
-        runners: dynamic-array-test,caesar-cipher-test,your-test
+        runners: "dynamic-array-test,caesar-cipher-test,your-test"
