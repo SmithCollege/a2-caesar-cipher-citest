@@ -47,8 +47,8 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        DYNAMIC-ARRAY-TEST_RESULTS: "${{steps.dynamic-array-test.outputs.result}}"
-        CAESAR-CIPHER-TEST_RESULTS: "${{steps.caesar-cipher-test.outputs.result}}"
-        YOUR-TEST_RESULTS: "${{steps.your-test.outputs.result}}"
+        DYNAMIC-ARRAY-TEST_RESULTS: "${{steps.dynamic-array-tests.outputs.result}}"
+        CAESAR-CIPHER-TEST_RESULTS: "${{steps.caesar-cipher-tests.outputs.result}}"
+        YOUR-TEST_RESULTS: "${{steps.your-tests.outputs.result}}"
       with:
         runners: "dynamic-array-test,caesar-cipher-test,your-test"
