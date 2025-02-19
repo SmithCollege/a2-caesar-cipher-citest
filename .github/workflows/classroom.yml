@@ -13,42 +13,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-
-    - name: Setup Gradle
-      uses: gradle/gradle-build-action@v3
-
-    - name: Run DynamicArrayTests
-      id: dynamic-array-tests
+    - name: General tests
+      id: general-tests
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: DynamicArrayTests
+        test-name: General tests
         setup-command: ''
-        command: ./gradlew test --tests DynamicArrayTests
+        command: gradle test
         timeout: 3
-
-    - name: Run CaesarCipherTests
-      id: caesar-cipher-tests
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: CaesarCipherTests
-        setup-command: ''
-        command: ./gradlew test --tests CaesarCipherTests
-        timeout: 3
-
-    - name: Run YourTests
-      id: your-tests
-      uses: classroom-resources/autograding-command-grader@v1
-      with:
-        test-name: YourTests
-        setup-command: ''
-        command: ./gradlew test --tests YourTests
-        timeout: 3
-
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        DYNAMIC-ARRAY-TEST_RESULTS: "${{steps.dynamic-array-tests.outputs.result}}"
-        CAESAR-CIPHER-TEST_RESULTS: "${{steps.caesar-cipher-tests.outputs.result}}"
-        YOUR-TEST_RESULTS: "${{steps.your-tests.outputs.result}}"
+        GENERAL-TESTS_RESULTS: "${{steps.general-tests.outputs.result}}"
       with:
-        runners: "dynamic-array-test,caesar-cipher-test,your-test"
+        runners: general-tests
