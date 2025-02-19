@@ -13,17 +13,18 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: General tests
-      id: general-tests
+    - name: Dynamic Array Tests
+      id: dynamic-array-tests
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: General tests
-        setup-command: ''
-        command: gradle test
+        test-name: Dynamic Array Tests
+        setup-command: gradle build
+        command: "./gradlew :app:test --tests DynamicArrayTests"
         timeout: 3
+        max-score: 1
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        GENERAL-TESTS_RESULTS: "${{steps.general-tests.outputs.result}}"
+        DYNAMIC-ARRAY-TESTS_RESULTS: "${{steps.dynamic-array-tests.outputs.result}}"
       with:
-        runners: general-tests
+        runners: dynamic-array-tests
