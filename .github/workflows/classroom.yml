@@ -18,7 +18,7 @@ jobs:
       uses: classroom-resources/autograding-command-grader@v1
       with:
         test-name: Dynamic Array Tests
-        setup-command: gradle build
+        setup-command: ''
         command: "./gradlew :app:test --tests DynamicArrayTests"
         timeout: 3
         max-score: 1
